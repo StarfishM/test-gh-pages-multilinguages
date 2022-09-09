@@ -1,0 +1,26 @@
+---
+---
+@import "minima";
+
+  .card {
+     width: 23vw;
+     height: 23vw;
+     display: inline-block;
+     text-align: center;
+     padding: 0.8rem;
+  }
+
+  .card img {
+    height: 80%;
+    margin: auto;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .card {
+        width: 90%;
+        height: auto;
+        display: inline-block;
+        text-align: center;
+        padding: 0.8rem;
+     }
+ }

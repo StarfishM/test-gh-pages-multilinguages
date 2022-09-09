@@ -1,0 +1,39 @@
+{%- assign url_components = page.url | split: "/" -%}
+{%- assign orig_lang = url_components[1] -%}
+{%- assign page_url = page.path | replace: '.md', '' | split: '/' | shift | join: '/'%}
+{%- assign all_pages = site.pages -%}
+{%- assign all_de_pages = site.pages | where: 'lang', 'de' -%}
+{%- assign all_en_pages = site.pages | where: 'lang', 'en' -%}
+{%- if page.lang == 'en'-%}
+    {%- assign isTranslated = all_de_pages | find_exp:'page', 'page.path contains page_url'-%}
+{%- else-%}
+    {%- assign isTranslated = all_en_pages | find_exp:'page', 'page.path contains page_url'-%}
+{%-endif%}
+<!-- {%- for page in all_de_pages -%}
+<h4>{{page.path}}</h4>
+{% endfor %}
+<h1>{{isTranslated}}</h1> -->
+<footer class="lang-options">
+    {%- if isTranslated-%}
+    <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
+    {% for lang in site.data.languages %}
+    <a href="/{{ lang[0] }}/{{page_url}}" title="switch language {{lang[0]}}"> {{ lang[0] }}</a> {% if forloop.index ==1%} {{'|'}} {%endif%}
+    {% endfor %}
+    {%- endif-%}
+</footer>
+
+<!-- detect default lang -->
+{% unless page.lang %}
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        const userLang = navigator.language || navigator.userLanguage;
+        const isGerman = userLang.includes('de');
+        if (isGerman) {
+            window.location.href = "{{ site.url }}/de/"
+        }
+        else {
+            window.location.href = "{{ site.url }}/en/"
+        }
+    }, false);
+</script>
+{% endunless %}

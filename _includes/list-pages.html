@@ -1,0 +1,13 @@
+{% comment %}
+    List pages in same directory as the current page, excluding the page itself.
+{% endcomment %}
+
+    {% for item in site.pages %}
+        {% if item.dir == page.dir and item.path != page.path %}
+        <div class="card">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}
+            <img src="{{item.thumbnail}}" alt="">
+            </a>
+        </div>
+        {% endif %}
+    {% endfor %}
