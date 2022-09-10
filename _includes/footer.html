@@ -15,7 +15,7 @@
         <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
         {% for lang in site.data.languages %}
             {%if lang[0] != page.lang%}
-                <a href="/{{lang[0]}}{{page_url | relative_url }} " title="switch language {{lang[0]}}"> {{ lang[0] }}</a>
+                <a href="{{site.baseurl}}{{lang[0]}}{{page_url | relative_url }} " title="switch language {{lang[0]}}"> {{ lang[0] }}</a>
             {%else%}
                 <span>{{page.lang}}</span>
             {%endif%}
@@ -30,19 +30,16 @@
     document.addEventListener('DOMContentLoaded', function () {
         const userLang = navigator.language || navigator.userLanguage;
         const isGerman = userLang.includes('de');
-        let browserUrl = "";
-        if (isGerman) {
-            browserUrl = "{{ site.url }}{{site.baseurl}}de/";
-            console.log(browserUrl)
-            console.log("locaation.path", location.path)
-            // window.location.href = "{{ site.url }}{{site.baseurl}}de/"
-        }
-        else {
-            browserUrl = "{{ site.url }}{{site.baseurl}}en/";
-            // window.location.href = "{{ site.url }}{{site.baseurl}}en/"
-            console.log(browserUrl)
-            console.log("locaation.path", location.path)
-        }
+        // let browserUrl = "";
+        window.location.href = isGerman ? "{{ site.url }}{{site.baseurl}}/de/" : "{{ site.url }}{{site.baseurl}}/en/";
+        // if (isGerman) {
+        //     browserUrl = "{{ site.url }}{{site.baseurl}}/de/";
+        //     window.location.href = browserUrl
+        // }
+        // else {
+        //     browserUrl = "{{ site.url }}{{site.baseurl}}/en/";
+        //     window.location.href = browserUrl
+        // }
     }, false);
 </script>
 {% endunless %}
