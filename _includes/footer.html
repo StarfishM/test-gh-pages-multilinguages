@@ -31,10 +31,10 @@
         const userLang = navigator.language || navigator.userLanguage;
         const isGerman = userLang.includes('de');
         if (isGerman) {
-            window.location.href = "{{ site.url }}/{{site.baseurl}}/de/"
+            window.location.href = "{{ site.url }}{{site.baseurl}}/de/"
         }
         else {
-            window.location.href = "{{ site.url }}/{{site.baseurl}}/en/"
+            window.location.href = "{{ site.url }}{{site.baseurl}}/en/"
         }
     }, false);
 </script>
