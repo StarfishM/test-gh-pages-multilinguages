@@ -1,4 +1,4 @@
-# translation snippets for logic shared across files, i.e. footer.html
+# translation snippets for logic shared across pages, i.e. footer.html
 langToggle:
     en: switch language
     de: Sprache wechsel
