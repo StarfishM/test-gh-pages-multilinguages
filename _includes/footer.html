@@ -15,9 +15,6 @@
         <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
         {% for lang in site.data.languages %}
             {%if lang[0] != page.lang%}
-                <h2>baseurl: {{site.baseurl}}</h2>
-                <h3>lang: {{lang[0]}}</h3>
-                <h3>page_url: {{page_url}}</h3>
                 <a href="{{site.baseurl}}/{{lang[0]}}/{{page_url}} " title="switch language {{lang[0]}}"> {{ lang[0] }}</a>
             {%else%}
                 <span>{{page.lang}}</span>
