@@ -12,10 +12,10 @@
 
 <footer class="lang-options">
     {%- if isTranslated-%}
-            <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
+        <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
         {% for lang in site.data.languages %}
             {%if lang[0] != page.lang%}
-                <a href="/{{ lang[0] }}/{{page_url}}" title="switch language {{lang[0]}}"> {{ lang[0] }}</a>
+                <a href="/{{lang[0]}}{{page_url | relative_url }} " title="switch language {{lang[0]}}"> {{ lang[0] }}</a>
             {%else%}
                 <span>{{page.lang}}</span>
             {%endif%}
