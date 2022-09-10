@@ -33,16 +33,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const userLang = navigator.language || navigator.userLanguage;
         const isGerman = userLang.includes('de');
-        // let browserUrl = "";
         window.location.href = isGerman ? "{{ site.url }}{{site.baseurl}}/de/" : "{{ site.url }}{{site.baseurl}}/en/";
-        // if (isGerman) {
-        //     browserUrl = "{{ site.url }}{{site.baseurl}}/de/";
-        //     window.location.href = browserUrl
-        // }
-        // else {
-        //     browserUrl = "{{ site.url }}{{site.baseurl}}/en/";
-        //     window.location.href = browserUrl
-        // }
     }, false);
 </script>
 {% endunless %}

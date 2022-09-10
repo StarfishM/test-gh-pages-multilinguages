@@ -28,7 +28,7 @@
   
           <div class="trigger">
             {%- for item in nav_links -%}
-            <a class="page-link" href="/{{page.lang}}{{item[page.lang].link }}">{{ item[page.lang].title | escape }}</a>
+            <a class="page-link" href="{{page.lang}}{{item[page.lang].link }}">{{ item[page.lang].title | escape }}</a>
             {%- endfor-%}
           </div>
         </nav>
