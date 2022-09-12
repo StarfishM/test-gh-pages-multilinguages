@@ -4,14 +4,28 @@
 {%- assign all_pages = site.pages -%}
 {%- assign all_de_pages = site.pages | where: 'lang', 'de' -%}
 {%- assign all_en_pages = site.pages | where: 'lang', 'en' -%}
+
+
 {%- if page.lang == 'en'-%}
-    {%- assign isTranslated = all_de_pages | find_exp:'page', 'page.path contains page_url'-%}
-{%- else-%}
-    {%- assign isTranslated = all_en_pages | find_exp:'page', 'page.path contains page_url'-%}
-{%-endif%}
+    {%- assign pages_translated = all_de_pages-%}
+    {%- assign translation_slug= 'de/'-%}
+{%- else -%}
+    {%- assign pages_translated = all_en_pages-%}
+    {%- assign translation_slug= 'en/'-%}
+{%- endif-%}
+
+{%- for p in pages_translated-%}
+    {% assign translation_page_url = p.path | replace: translation_slug, '' | replace: '.md', ''%}
+    {%if page_url ==  translation_page_url%}
+        {%assign isTranslated = true%}
+    {%endif%}
+{%- endfor-%}
+
+
+
 
 <footer class="lang-options">
-    {%- if isTranslated-%}
+    {%-if isTranslated-%}
         <em>{{ site.data.translations['langToggle'][page.lang]}}</em>
         {% for lang in site.data.languages %}
             {%if lang[0] != page.lang%}
