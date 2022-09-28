@@ -6,3 +6,4 @@ original: index
 ---
 
 ## DE Home
+<img src="{{site.baseurl}}/assets/img/hello.gif" alt="">

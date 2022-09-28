@@ -22,16 +22,6 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/test-gh-pages-multilinguages" # the subpath of your site, e.g. /blog
 url: "https://starfishm.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 destination: ./docs
-# scope to add languages
-defaults:
-    - scope:
-          path: "en"
-      values:
-          lang: "en"
-    - scope:
-          path: "de"
-      values:
-          lang: "de"
 
 #twitter_username: jekyllrb
 #github_username:  jekyll
